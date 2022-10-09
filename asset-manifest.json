@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/menu_searcher/static/css/main.073c9b0a.css",
+    "main.js": "/menu_searcher/static/js/main.feded7ff.js",
+    "index.html": "/menu_searcher/index.html",
+    "main.073c9b0a.css.map": "/menu_searcher/static/css/main.073c9b0a.css.map",
+    "main.feded7ff.js.map": "/menu_searcher/static/js/main.feded7ff.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.feded7ff.js"
+  ]
+}
