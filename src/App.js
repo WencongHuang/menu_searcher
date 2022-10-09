@@ -1,23 +1,33 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
+import SearchBar from './components/SearchBar';
 import './App.css';
 
 function App() {
+  const [menuData, setMenuData] = useState([]);
+
+  // Fetch data from the API
+  useEffect(() => {
+    fetch("https://stream-restaurant-menu-svc.herokuapp.com/item")
+      .then(response => {
+        // If successfully gets the data, return the data.
+        // Else, throw an error.
+        if(response.ok) {
+          return response.json();
+        }
+        throw response;
+      })
+      //  Store the fetched data into menuData as an array.
+      .then(data => {
+        setMenuData(data);
+      })
+      .catch(() => {
+        console.log("Something went wrong when fetch the data!");
+      })
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <SearchBar menu={menuData}/>
     </div>
   );
 }
