@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import SearchBar from './components/SearchBar';
+// import FuncSearchBar from './components/FuncSearchBar';
+import ClassSearchBar from './components/ClassSearchBar';
 import './App.css';
 
 function App() {
@@ -27,7 +28,8 @@ function App() {
 
   return (
     <div className="App">
-      <SearchBar menu={menuData}/>
+      {/* <FuncSearchBar menu={menuData}/> */}
+      <ClassSearchBar menu={menuData}/>
     </div>
   );
 }

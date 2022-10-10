@@ -2,7 +2,7 @@ import React, { useState, useMemo } from "react";
 import FilteredList from "./FilteredList";
 import debounce from "lodash.debounce";
 
-function SearchBar(props) {
+function FuncSearchBar(props) {
   const { menu } = props;
   const [subString, setSubString] = useState("");
 
@@ -39,4 +39,4 @@ function SearchBar(props) {
   );
 }
 
-export default SearchBar;
+export default FuncSearchBar;
