@@ -1,7 +1,6 @@
 import React from "react";
 import FilteredList from "./FilteredList";
-// import debounce from "../functionality/debounce"; // Custom debounce
-// import debounce from "lodash.debounce";
+import debounce from "../functionality/debounce"; // Custom debounce
 
 class ClassSearchBar extends React.Component {
   constructor(props) {
@@ -13,23 +12,23 @@ class ClassSearchBar extends React.Component {
     }
   }
 
-  // debouncedGetSubString = debounce(
-  //   function(){this.getNewMenuItem.call(this)} ,
-  //   1000
-  // );
+  debouncedGetSubString = debounce(
+    () => this.getNewMenuItem(),
+    1000
+  );
 
   getSubString = (event) => {
     this.setState({ 
       subString : event.target.value 
     },
-    this.getNewMenuItem
-    // this.debouncedGetSubString
+    // Uncomment the line below this if we don't want debounce.
+    // this.getNewMenuItem
     )
+    this.debouncedGetSubString();
   }
 
   getNewMenuItem = () => {
     const filteredItem = this.state.allMenuItem.filter(item => {
-      console.log(this.state.subString);
       if (this.state.subString === "") {
         return item;
       }
@@ -50,8 +49,6 @@ class ClassSearchBar extends React.Component {
       </>
     );
   }
-
-
 }
 
 export default ClassSearchBar;
