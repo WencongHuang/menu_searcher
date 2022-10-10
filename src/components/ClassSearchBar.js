@@ -1,6 +1,7 @@
 import React from "react";
 import FilteredList from "./FilteredList";
 import debounce from "../functionality/debounce"; // Custom debounce
+// import throttle from "../functionality/throttle"; // Custom throttle
 
 class ClassSearchBar extends React.Component {
   constructor(props) {
@@ -48,7 +49,11 @@ class ClassSearchBar extends React.Component {
   render() {
     return (
       <>
-        <input type="text" placeholder="Search..." onChange={this.getSubString}/>
+        <input 
+          type="text" 
+          placeholder="ClassSearch..." 
+          onChange={this.getSubString}
+        />
         <FilteredList menu={this.state.newMenuItem}/>
       </>
     );

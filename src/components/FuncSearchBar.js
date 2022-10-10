@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from "react";
 import FilteredList from "./FilteredList";
 import debounce from "lodash.debounce";
+// import throttle from "lodash.throttle";
 
 function FuncSearchBar(props) {
   const { menu } = props;
@@ -31,7 +32,7 @@ function FuncSearchBar(props) {
     <>
       <input
         type="text"
-        placeholder="Search..."
+        placeholder="FuncSearch..."
         onChange={debounceGetSubString}
       />
       <FilteredList menu={newMenuItem} />

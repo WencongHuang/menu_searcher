@@ -1,6 +1,6 @@
-// Custom debounce function
+// Custom debounce
 const debounce = (callback, delay) => {
-  let timer ;
+  let timer;
   return (...args) => {
     clearTimeout(timer);
     timer = setTimeout(() => {
