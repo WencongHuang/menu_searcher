@@ -7,10 +7,33 @@ class ClassSearchBar extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      allMenuItem: props.menu,  // use to keep all the item
-      newMenuItem: props.menu,  // use to keep the filtered item
+      allMenuItem: [],  // use to keep all the item
+      newMenuItem: [],  // use to keep the filtered item
       subString: "",
     }
+  }
+
+  componentDidMount() {
+    fetch("https://stream-restaurant-menu-svc.herokuapp.com/item")
+      .then(response => {
+        // If successfully gets the data, return the data.
+        // Else, throw an error.
+        if(response.ok) {
+          return response.json();
+        }
+        throw response;
+      })
+      //  Store the fetched data into menuData as an array.
+      .then(data => {
+        this.setState({
+          ...this.state,
+          allMenuItem: data,
+          newMenuItem: data,
+        });
+      })
+      .catch(() => {
+        console.log("Something went wrong when fetch the data!");
+      })
   }
 
   // Use a custom debounce function to get input from the search bar with a delay.

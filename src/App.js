@@ -38,7 +38,7 @@ function App() {
         If we decide to prevent the second process from happening by making sure that our function can only run once in a given interval, that would be throttling.
       </p>
       <FuncSearchBar menu={menuData}/>
-      <ClassSearchBar menu={menuData}/>
+      <ClassSearchBar />
     </div>
   );
 }
